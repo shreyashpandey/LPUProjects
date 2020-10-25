@@ -52,6 +52,10 @@ console.log('This is after the write call');
 //   fs.writeFileSync('./Models/employees.json', data);
 
 });
+app.get('/json',(req,res)=>{
+    res.sendFile(__dirname + '/Model/employee.json');
+});
+// app.get('/details')
 //   let data = JSON.stringify(student);
 // fs.writeFileSync('student-2.json', data);
 //   var options = {

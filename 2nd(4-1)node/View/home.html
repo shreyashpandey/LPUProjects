@@ -2,18 +2,35 @@
 <html>
     <head>
         <title>Home Page</title>
+        <!-- <script type="text/javascript" src="../Model/employee.json"></script> -->
     </head>
     <body>
-        <div id="a1" style="border:5px solid black;">
+        <!-- <div id="a1" style="border:5px solid black;">
 
-        </div>
+        </div> -->
+        <table id="t1" style="border:5px solid black;">
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+            </tr>
+            
+        </table>
         <script>
-            fetch('../Model/employee.json').then((resp)=>{
+            // alert("NAME"+employee[0].Name);
+            fetch('http://localhost:3000/json').then(resp=>{return resp.json();}).then((resp)=>{
                 for(let i=0;i<resp.length;i++)
                 {
-                let para=document.createElement('p');
-                para.innerHTM=resp[i].Name+" "+resp[i].Email;
-                document.getElementById('a1').appendChild(para);
+                    let row=document.createElement('tr');
+                    let col1=document.createElement('td');
+                    let col2=document.createElement('td');
+                    col1.innerHTML=resp[i].Name;
+                    col2.innerHTML=resp[i].Email;
+                    row.appendChild(col1);
+                    row.appendChild(col2);
+                    document.getElementById('t1').appendChild(row);
+                // let para=document.createElement('p');
+                // para.innerHTML=resp[i].Name+" "+resp[i].Email;
+                // document.getElementById('a1').appendChild(para);
                  }
                 
             });
