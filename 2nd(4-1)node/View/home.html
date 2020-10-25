@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Home Page</title>
+    </head>
+    <body>
+        <div id="a1" style="border:5px solid black;">
+
+        </div>
+        <script>
+            fetch('../Model/employee.json').then((resp)=>{
+                for(let i=0;i<resp.length;i++)
+                {
+                let para=document.createElement('p');
+                para.innerHTM=resp[i].Name+" "+resp[i].Email;
+                document.getElementById('a1').appendChild(para);
+                 }
+                
+            });
+        </script>
+    </body>
+</html>

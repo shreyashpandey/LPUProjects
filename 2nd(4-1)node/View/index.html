@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <meta
+      name="author"
+      content="Mark Otto, Jacob Thornton, and Bootstrap contributors"
+    />
+    <meta name="generator" content="Jekyll v3.8.5" />
+    <title>Signin Template · Bootstrap</title>
+    <script>
+
+    </script>
+
+    <link
+      rel="canonical"
+      href="https://getbootstrap.com/docs/4.3/examples/sign-in/"
+    />
+
+    <!-- Bootstrap core CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+
+    <!-- <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style> -->
+    <!-- Custom styles for this template -->
+    <link href="styles.css" rel="stylesheet" />
+  </head>
+  <body class="text-center">
+    <form class="form-signin" action="/" method="post">
+      <!-- <img
+        class="mb-4"
+        src="images/download.png"
+        alt=""
+        width="72"
+        height="72"
+      /> -->
+      <!--class is some bootstrap file -->
+      <h1 class="h3 mb-3 font-weight-normal">Book Appointment</h1>
+      <input
+        type="text"
+        name="fname"
+        class="form-control fir"
+        placeholder="First Name"
+        required
+        autofocus
+      />
+      <input
+        type="email"
+        name="email"
+        class="form-control thi"
+        placeholder="Email"
+        required
+      />
+      <input
+        type="text"
+        id="phn"
+        name="phone"
+        class="form-control sec"
+        placeholder="Phone"
+        required
+      />
+
+      <select
+      name="city"
+      id="city"
+      class="form-control thi"
+      placeholder="city">
+      <option value="0">Select City </option>
+        <option>California</option>
+        <option>Mumbai </option>
+        <option>Madrid</option>
+        <option>Delhi</option>
+      </select>
+        <input
+        type="date"
+        id="date"
+        name="date"
+        placeholder="date"
+        class="form-control"
+        required
+        />
+        
+      <button class="btn btn-lg btn-primary btn-block" type="submit">
+        book
+      </button>
+      <p class="mt-5 mb-3 text-muted">&copy;Private Limited</p>
+    </form>
+    <p  id="in1" style="position:absolute;left:800px;top:350px;color:green;font-size:16px;display:none;">Incorrect Input</p>
+    <p  id="in2" style="position:absolute;left:800px;top:400px;color:green;font-size:16px;display:none;">Incorrect Input</p>
+    <p  id="in3" style="position:absolute;left:800px;top:300px;color:green;font-size:16px;display:none;">Incorrect Input</p>
+
+    <script>
+    // function vf() {
+    //   var x = document.forms[0]["hospital"].value;
+    //   var y = document.forms[0]["department"].value;
+    //   var z = document.forms[0]["phone"].value;
+    //   document.getElementById("in1").setAttribute("style","position:absolute;left:830px;top:350px;color:green;font-size:16px;display:none;");
+    //   document.getElementById("in2").setAttribute("style","position:absolute;left:830px;top:400px;color:green;font-size:16px;display:none;");
+    //   document.getElementById("in3").setAttribute("style","position:absolute;left:830px;top:300px;color:green;font-size:16px;display:none;");
+    //    let c=0;
+    //    var phoneno = /^\d{10}$/;
+    //   if(z.match(phoneno))
+    //   c=1;
+
+    //   if (x == "0"||y=="0"||c==0) {
+    //     alert("invalid input");
+    //     if(x=="0")
+    //     document.getElementById("in1").setAttribute("style","position:absolute;left:830px;top:350px;color:green;font-size:16px;display:block;");
+    //     if(y=="0")
+    //     document.getElementById("in2").setAttribute("style","position:absolute;left:830px;top:400px;color:green;font-size:16px;display:block;");
+    //     if(c==0)
+    //     document.getElementById("in3").setAttribute("style","position:absolute;left:830px;top:300px;color:green;font-size:16px;display:block;");
+    //     return false;
+    //   }
+    //   var dt=document.getElementById('date').value+' '+document.getElementById('time').value;
+    //   var d=new Date(dt);
+    //   d.setMinutes(d.getMinutes()+330);
+
+    //   document.getElementById('date').value=(("0"+d.getDate()).slice(-2))+"-"+(("0"+d.getMonth()).slice(-2))+"-"+d.getFullYear();
+    //   document.getElementById('time').value=(("0"+d.getHours()).slice(-2))+":"+(("0"+d.getMinutes()).slice(-2));
+    //     /*var tval=document.getElementById('t1').value;
+    //     var t1=tval.split(":");
+    //     var t2=parseInt(t1[0])*60+parseInt(t1[1]);
+    //     var t3=t2+330;
+    //     if(t3>1440)
+    //     {
+    //     var t4=t3-1440;
+    //     var t5=t4%60;
+    //     var t6=parseInt(t4/60);
+    //     var t7=t6.toString()+':'+t5.toString();
+    //     document.getElementById('d1').stepUp(1);
+    //     document.getElementById('t1').value=t7;
+    //     }
+    //   else
+    //     {
+    //     var t5=t3%60;
+    //     var t6=parseInt(t3/60);
+    //     var t7=t6.toString()+':'+t5.toString();
+    //     document.getElementById('t1').value=t7;
+    //   }*/
+    //     //var t=document.getElementById('t1').stepUp(330);
+    //     //var d=document.getElementById('d1').value;
+    //     document.forms[0].submit();
+    //     return true;
+    //   }
+    </script>
+  </body>
+</html>
